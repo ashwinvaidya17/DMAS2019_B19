@@ -7,11 +7,11 @@ This repository contains the Hello world submission for the Design of Multi-agen
 1. To run the above code type ```python3 rpsls.py``` in the terminal.
 2. The game demo is between the two human players lasting for 20 rounds.
 3. The available choices are as follows:         
-  1. Rock 
-  2. Scissor 
-  3. Paper 
-  4. Lizard 
-  5. Spock
+    1. Rock 
+    2. Scissor 
+    3. Paper 
+    4. Lizard 
+    5. Spock
  
 4. Each player needs to choose one of the above options. Based on the rules the player will win/lose.
 
