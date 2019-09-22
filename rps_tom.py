@@ -175,8 +175,8 @@ if __name__=="__main__":
     p1_ch=[]
     p2_ch=[]
     tom=tom()
-    res_limit=5 # limit for the order of agents trails
-    t_runs=11
+    res_limit=5 # limit for the order of agents trails to know about each other
+    t_runs=11 # Total number of runs
     print("This is an rock paper scissor game ---------- the choice are \
          \n 1:Rock \n 2.scissor \n 3.paper \n \
         each player need to choose one of the above options  ")
