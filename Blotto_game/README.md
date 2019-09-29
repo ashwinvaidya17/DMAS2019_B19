@@ -28,7 +28,8 @@ These are compulsory command line arguments.
  1. Go to main folder.
  2. Copy Linux.tar.xz to the current folder  
  3. Extract the contents using the command tar -xvzf Linux.tar.xz
- 4. Copy blotto_game.x86_64 from Linux folder (This is the Linux build for the Frontend) and keep it current folder
- 4. run in the terminal command 'sh run.sh' 
+ 4. Copy blotto_game.x86_64 from Linux folder (This is the Linux build for the Frontend) and keep it current folder.
+ 5. Make sure blotto_game.x86_64 has executable permissions.
+ 6. run in the terminal command 'sh run.sh' 
 
 
