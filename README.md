@@ -6,7 +6,6 @@ This repository contains the Apha version submission for the Design of Multi-age
 # Instructions 
 ## Game working principle
 ### Rock Paper Scissors
-#### Approach 1
 1. The game demo is between the zero order agent vs first order agent for 't' number of runs/rounds to the 'n' number of games.
 2. The agents need to choose between on of the available choices as follows:         
     1. Rock 
@@ -28,7 +27,7 @@ This repository contains the Apha version submission for the Design of Multi-age
 4. The winner of the game is computed based on the cumulative score gained by each players in the 't' rounds/runs.
 5. Players with the higerst score is determined as the winner.
 
-## Running the Game
+### Running the Game
 Both Rock paper scissor game and Rock paper scissor lizard spock game are integrated in the same console.
 
 Follow the below steps to run the Game:
@@ -44,6 +43,10 @@ Follow the below steps to run the Game:
 6. At the next step, you need to enter the number of rounds/runs that the agents need to play for one round (eg, 15 round/runs).
 7. Then, you need to enter the number of Games that agents need to play (eg,5 games).
 8. After the simulation ends, you find the ``result.txt`` file in the rsp&rpsls folder, which stores the result of the game.
+
+## Rock Paper Scissors Approach 2
+
+Follow the steps to run the game,
 
 
 ## Blotto-game 
