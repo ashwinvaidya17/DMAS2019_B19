@@ -1,6 +1,5 @@
 ###### Rock papaer scissor ###########
 import random
-import math
 from . import TOM
 from . import game
 
@@ -9,16 +8,16 @@ def rps_run(total_no_of_runs,p1order,p2order):
     turn=0
     p1=0
     p2=0
-    rps={1:"rock",2:"paper",3:"scissor"}
-    count=1 # run count
+    rps={1:"rock",2:"paper",3:"scissor"} #dictionary for rps
+    count=1 # run/round count
     p1_order=p1order # order of player one here it is zero order
     p2_order=p2order # order of plater two here it is first order
     p1_ch=[] # player 1 choice
     p2_ch=[] # player 2 choice
     tom=TOM.tom() # calling the TOM function
-    a=game.rps_game()
+    a=game.rps_game() # callin the main game settings function
     res_limit=5 # limit for the order of agents trails
-    t_runs=total_no_of_runs # total number of runs
+    t_runs=total_no_of_runs # total number of runs/rounds
     file_to_save_result="result.txt" # storage file for the output of each game result
     print("########--------------------------------------------------------########")
     print("This is an rock paper scissor game ---------- the choice are \
