@@ -10,7 +10,7 @@ class rpsls():
         self.winner=None
 
     def game(self,p1,p2):
-        """ The main game sequence : based on the player's choice they will either win or lose"""
+        # main game funcation
         self.p1=p1 # player 1 choice
         self.p2=p2 # player 2 choice
 
@@ -67,5 +67,4 @@ class rpsls():
             
         print("Player one Final score :",self.p1_score)
         print("Player two Final score :",self.p2_score)
-        #print("Number of matches ends in Draw",self.draw)
         return self.winner
