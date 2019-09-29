@@ -6,8 +6,8 @@ from rpsls.rpsls import rpsls_run
 
 if __name__=="__main__":
 
-	# to remove the old files
-	file_to_save_result="result.txt"
+	# to remove the old files 
+	file_to_save_result="result.txt" # output file
 	if file_to_save_result in os.listdir():
 		os.remove(file_to_save_result)
 	
@@ -16,10 +16,10 @@ if __name__=="__main__":
 	1. rock paper scissor \n \
 	2. rock paper scissor lizard spock \n")
 
-	read_user=int(input("Enter your choice 1 or 2:"))
+	read_user=int(input("Enter your Game of choice 1 or 2:"))
 	p1_order=int(input("Enter the player one order :"))
 	p2_order=int(input("Enter the player two order :"))
-	t_run=int(input("Enter the total number of runs player need to compete (not less than 10 runs) eg: 20 :"))
+	t_run=int(input("Enter the total number of runs player need to compete (not less than 10 runs for rpsls and not less than 5 for rps game) eg: 20 :"))
 	read_games=int(input("Enter the number of games players need to play eg: 5 :"))
 
 	while read_games > 0:
