@@ -4,8 +4,8 @@ Game module of the rock paper scissor game
 class rps_game():
     def __init__(self):
         #initialiser
-        self.p1_score=0
-        self.p2_score=0
+        self.p1_score=0 # player one score
+        self.p2_score=0 # player two score
         self.draw=0 # no of macthes get draw
         self.winner=None
 
