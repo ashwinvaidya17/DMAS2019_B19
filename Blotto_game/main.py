@@ -272,4 +272,5 @@ if __name__ == "__main__" :
         #  Socket to talk to server
         socket = context.socket(zmq.REP)
         socket.bind("tcp://*:5555")
+        print(socket.recv())
         socket.send_json(msgJson)
