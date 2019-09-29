@@ -32,7 +32,7 @@ Both Rock paper scissor game and Rock paper scissor lizard spock game are integr
 
 Follow the below steps to run the Game:
 
-1. Navigate to the folder rps&rpsls in the linux terminal.
+1. Navigate to the folder rps&rpsls by typing ```cd 'rps&rpsls' ``` in the linux terminal.
 2. Run the game by typing ```python3 console.py``` in the linux terminal.
 3. First you need to enter the "Game of choice"
     1. rock paper scissors
