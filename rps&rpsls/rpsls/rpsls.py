@@ -5,19 +5,20 @@ from . import game
 from .import TOM
 
 def rpsls_run(total_no_of_runs,p1order,p2order):
-    turn=0
-    p1=0
-    p2=0
-    rpsls={1:"rock",2:"paper",3:"scissor",4:"lizard",5:"spock"}
-    count=1 # run count
+    """ variable declaration """
+    turn=0 # players turns
+    p1=0 # player 1
+    p2=0 # player 2
+    rpsls={1:"rock",2:"paper",3:"scissor",4:"lizard",5:"spock"} # dictionary for rpsls
+    count=1 # run/round count
     p1_order=p1order # order of player one here it is zero order
     p2_order=p2order # order of plater two here it is first order
     p1_ch=[] # player 1 choice
     p2_ch=[] # player 2 choice
     tom=TOM.tom() # calling the TOM function
-    a=game.rpsls()
+    a=game.rpsls() # game running initialiser
     res_limit=10  # limit for the order of agents trails
-    t_runs=total_no_of_runs # total number of runs
+    t_runs=total_no_of_runs # total number of run/rounds
     file_to_save_result="result.txt"
     print("########--------------------------------------------------------########")
     print("This is an rock paper scissor game ---------- the choice are \
@@ -76,4 +77,3 @@ def rpsls_run(total_no_of_runs,p1order,p2order):
     print("The choices of player 2 :",p2_ch)
     print("The result of the game :",game_summary)
 
-#run(50,0,1)
