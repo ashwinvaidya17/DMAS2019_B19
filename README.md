@@ -46,7 +46,9 @@ Follow the below steps to run the Game:
 
 ## Rock Paper Scissors Approach 2
 
-Follow the steps to run the game,
+Follow the steps to run the game:
+
+
 
 
 ## Blotto-game 
