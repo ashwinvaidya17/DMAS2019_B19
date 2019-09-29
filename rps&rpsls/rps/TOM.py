@@ -7,14 +7,13 @@ import random
 class tom():
     # class to compute the player decisions
     def __init__(self):
-        self.p1_decision=0
-        self.p2_decision=0
-        self.zero_order_flag=0
+        self.p1_decision=0 # player one decision storage
+        self.p2_decision=0 # player two decision storage
+        self.zero_order_flag=0 # support variable
         self.randflag=0 #global
-
+    
+    # Agents communication part
     def call_me(self,p_name,p_order,p1_ch,p2_ch):
-        #print("player 1 choice @ each round ",p1_ch)
-        #print("player 2 choice @ each round",p2_ch)
         self.p1_order=None # Getting the player 1 order
         self.p2_order=None # Getting the player 2 order
         if p_name=="p1":
@@ -28,7 +27,7 @@ class tom():
 
     # returning the player's choice based on the opponent choice
     def response(self,inp):
-        res=0
+        res=0 # response variable
         if inp==1:
             res=2
         elif inp==2:
@@ -39,7 +38,7 @@ class tom():
 
     # Determing the choice of zero order mind
     def compute(self,inp_lst):
-        self.final_store=[]
+        self.final_store=[] # storage list
         if (len(inp_lst) > 1):
             for choices in inp_lst:
                 if choices not in self.final_store:
