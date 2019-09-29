@@ -207,7 +207,7 @@ if __name__ == "__main__" :
     #Command line arguments
     parser.add_argument("--troops",help="number of troops")
     parser.add_argument("--battlefields",help="number of battlefields")
-    parser.add_argument("--memory",help="memoryofagent")
+    
     parser.add_argument("--orderofagent1",help="Theory of mind order of the agent1")
     parser.add_argument("--orderofagent2",help="Theory of mind order of the agent2")
     parser.add_argument("--simulation",help="1 to unable simulation, 0 to disable simulation")
@@ -217,7 +217,7 @@ if __name__ == "__main__" :
     print (args)
     noOfTroops = int(args.troops)
     noOfBattleFields = int(args.battlefields)
-    memory = int(args.memory)
+    
     agent1_order = int(args.orderofagent1)
     agent2_order = int(args.orderofagent2)
     simulation = int(args.simulation)
