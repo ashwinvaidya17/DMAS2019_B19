@@ -5,9 +5,9 @@ from . import game
 
 def rps_run(total_no_of_runs,p1order,p2order):
     """ variable decleration """
-    turn=0
-    p1=0
-    p2=0
+    turn=0 
+    p1=0 # player 1
+    p2=0 # player 2
     rps={1:"rock",2:"paper",3:"scissor"} #dictionary for rps
     count=1 # run/round count
     p1_order=p1order # order of player one here it is zero order
