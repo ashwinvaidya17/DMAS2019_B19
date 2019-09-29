@@ -1,30 +1,32 @@
 # DMAS2019_B19
-This repository contains the Hello world submission for the Design of Multi-agent systems.
+This repository contains the Apha version submission for the Design of Multi-agent systems by the group ``B-19``. 
+
+# Title : "Higher order Agents in zero sum game"
 
 # Instructions 
+## Game working principle
+### Rock Paper Scissors.
+1. The game demo is between the zero order agent vs first order agent for 't' number of runs/rounds to the 'n' number of games.
+2. The agents need to choose between on of the available choices as follows:         
+    1. Rock 
+    2. Scissor 
+    3. Paper 
+3. Each player needs to choose one of the above options. Based on the rules the player will win/lose.
+4. The winner of the game is computed based on the cumulative score gained by each players in the 't' rounds/runs.
+5. Players with the higerst score is determined as the winner.
 
-## The rpsls.py file implements the game of Rock Paper Scissors Lizard Spock. 
-1. To run the above code type ```python3 rpsls.py``` in the terminal.
-2. The game demo is between the two human players lasting for 20 rounds.
-3. The available choices are as follows:         
+### Rock Paper Scissors Lizard Spock. 
+1. The game demo is between the zero order agent vs first order agent for 't' number of runs/rounds to the 'n' number of games.
+2. The agents need to choose between on of the available choices as follows:         
     1. Rock 
     2. Scissor 
     3. Paper 
     4. Lizard 
     5. Spock
- 
-4. Each player needs to choose one of the above options. Based on the rules the player will win/lose.
+3. Each player needs to choose one of the above options. Based on the rules the player will win/lose.
+4. The winner of the game is computed based on the cumulative score gained by each players in the 't' rounds/runs.
+5. Players with the higerst score is determined as the winner.
 
-
-## The rps_tom.py implements the logic for the zero and first-order theory of mind.
-1. To run the above code type ```python3 rps_tom.py``` in the terminal.
-2. The game demo is between the zero and first order for "n" rounds. In the code, you can change the number of runs "t_runs" variable
-3. The choices are as follows:     
-   1. Rock 
-   2. Scissor 
-   3. Paper 
-         
-4. Each player needs to choose one of the above options. Based on the rules the player will win/lose.
 
 ## Blotto-game 
 Go through the Readme.md in Blotto_game to run the blotto game. 
