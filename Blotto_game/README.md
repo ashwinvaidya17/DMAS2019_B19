@@ -9,7 +9,7 @@ This folder contains the necessary steps required to run the logic as well as si
    python main.py --troops 8 --battlefields 3 --orderofagent1 3 --orderofagent2 1  --simulation 0
 
 These are compulsory command line arguments.
-Blotto
+
 - Troops = Number of troops
 
 - Battlefield = Number of battlefields
