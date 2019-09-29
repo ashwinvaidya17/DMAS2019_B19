@@ -26,6 +26,6 @@ This repository contains the Hello world submission for the Design of Multi-agen
          
 4. Each player needs to choose one of the above options. Based on the rules the player will win/lose.
 
-## Blotto-game frontend
-The Blotto game frontend folder contins the code for the simulator. The code is available just for reference. The executable is available in ```Linux_build.7z```. Extract ```Linux_build.7z``` to the folder containing Blotto game backend.
-See instructions for Blotto game backend to run the code.
+## Blotto-game 
+Go through the Readme.md in Blotto_game to run the blotto game. 
+
