@@ -18,7 +18,7 @@ if __name__=="__main__":
 
 	read_user=int(input("Enter your Game of choice 1 or 2:"))
 	p1_order=int(input("Enter the player one order Eg : 0 (Means zero order agent) :"))
-	p2_order=int(input("Enter the player two order Eg : 1 (Means first order agent") :"))
+	p2_order=int(input("Enter the player two order Eg : 1 (Means first order agent) :"))
 	t_run=int(input("Enter the total number of runs player need to compete (not less than 10 runs for rpsls and not less than 5 for rps game) eg: 20 :"))
 	read_games=int(input("Enter the number of games players need to play eg: 5 :"))
 
