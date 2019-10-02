@@ -98,7 +98,9 @@ def findProbableDistribution(distributionOfOpponent,numberOfTroops,memory,noOfBa
         battleFieldsToBeWon = (noOfBattleFields+1)/2
     choicesForBattleField=random.sample(range(0, noOfBattleFields), battleFieldsToBeWon)
     distribution = initializeDistributionOfTroops(noOfBattleFields)
+    #print("Initialize distribution",distribution)
     for i in choicesForBattleField:
+
         if ((numberOfTroopsRemaining - distributionOfOpponent[i]['troops']) < 1):
 
             break
@@ -106,6 +108,7 @@ def findProbableDistribution(distributionOfOpponent,numberOfTroops,memory,noOfBa
 
            distribution[i]['battleField'] = distributionOfOpponent[i]['battleField']
            distribution[i]['troops']  = distributionOfOpponent[i]['troops'] + 1
+
            numberOfTroopsRemaining = numberOfTroopsRemaining - (distributionOfOpponent[i]['troops'] + 1)
     for i in range(0,noOfBattleFields):
 
@@ -114,7 +117,10 @@ def findProbableDistribution(distributionOfOpponent,numberOfTroops,memory,noOfBa
             This logic makes little sense as I am just distributing the remaining troops to a battlefield that has no troops.
             Rest all battlefields which are not necessary to be won to win the round still will have 0 troops 
             '''
+
+            distribution[i]['battleField'] = i + 1
             distribution[i]['troops'] = numberOfTroopsRemaining
+
             numberOfTroopsRemaining = 0
 
     return distribution
@@ -143,12 +149,13 @@ def distributeTroopsForHigherOrderAgent(distributionOfTheOpponent, distributionO
     #distributionReturn = getJsonForDistribution(distributionOfTheUser)
     jsonDistributionForOpponent = distributionOfTheOpponent
     while(orderOfTheAgent > 0):
-         sortedDistributionForOpponent=sorted(jsonDistributionForOpponent, key=lambda i: i['troops'])
-
-         distributionReturn = findProbableDistribution(sortedDistributionForOpponent, numberOfTroops,1,noOfBattleFields)
+         #sortedDistributionForOpponent=sorted(jsonDistributionForOpponent, key=lambda i: i['troops'])
+         #print("Sorted Distribution of Oppenent ",sortedDistributionForOpponent)
+         distributionReturn = findProbableDistribution(jsonDistributionForOpponent, numberOfTroops,1,noOfBattleFields)
 
          jsonDistributionForOpponent = distributionReturn
          orderOfTheAgent = orderOfTheAgent - 1
+    print("Distribution return is ",distributionReturn)
     return distributionReturn
 
 #Distribute the troops randomly in given battlefields
@@ -266,13 +273,14 @@ if __name__ == "__main__" :
     print("Agent wins are ",agent1_wins,agent2_wins)
     if(simulation):
         msgJson = getJsonToSend(game,implementation,noOfTroops,noOfBattleFields,totalPlayers,maxWins,agent1_higherOrder,agent2_higherOrder,afterBattleDistribution)
-        print("Msg Json",msgJson)
+        #print("Msg Json",msgJson)
         '''
         zmq sending msg to the frontend
         '''
-
+        
         context = zmq.Context()
         #  Socket to talk to server
         socket = context.socket(zmq.REP)
         socket.bind("tcp://*:5555")
         socket.send_json(msgJson)
+        
