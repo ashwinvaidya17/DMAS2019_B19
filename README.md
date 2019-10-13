@@ -39,12 +39,11 @@ Follow the below steps to run the Game:
     2. rock paper scissors lizard spock
 4. Then you need to enter the player one order (for this demo enter '0' for the player one).
 5. After that, you need to enter the player Two order (for this demo enter '1' for the player two).
-(Note : since the test is against the zero order and first order we need to make choices as mentiond in the step 3 and 4).
 6. At the next step, you need to enter the number of rounds/runs that the agents need to play for one round (eg, 15 round/runs).
 7. Then, you need to enter the number of Games that agents need to play (eg,5 games).
 8. After the simulation ends, you find the ``result.txt`` file in the rsp&rpsls folder, which stores the result of the game.
-
 #### Note: Please enter the number of games of less than five since the code generates graph 
+
 ## Rock Paper Scissors Approach 2
 
 Follow the steps to run the game:
