@@ -47,10 +47,10 @@ Follow the below steps to run the Game:
 ## Rock Paper Scissors Approach 2
 
 Follow the steps to run the game:
-1. Navigate to the directory rps_approach_2 in the linux terminal.
+1. Navigate to the directory Rock_Paper_Scissor_Approach_2 in the linux terminal.
 2. Run the file ```Launch_RPS_Game_approach_2.py``` in the linux terminal.
-3. Choose the order of player 1 (0 or 1).
-4. Choose the order of player 2 (0 or 1).
+3. Choose the order of player 1 (You can choose any order).
+4. Choose the order of player 2 (You can choose any order).
 
 
 
