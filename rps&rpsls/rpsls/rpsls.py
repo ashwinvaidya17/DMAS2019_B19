@@ -5,10 +5,11 @@ from . import game
 from .import TOM
 
 def rpsls_run(total_no_of_runs,p1order,p2order):
-    turn=0
-    p1=0
-    p2=0
-    rpsls={1:"rock",2:"paper",3:"scissor",4:"lizard",5:"spock"}
+    # varaiable declaration 
+    turn=0 
+    p1=0 # assign player one
+    p2=0 # assign player two
+    rpsls={1:"rock",2:"paper",3:"scissor",4:"lizard",5:"spock"} # dictionary initialiser
     count=1 # run/round count
     p1_order=p1order # order of player one here it is zero order
     p2_order=p2order # order of plater two here it is first order
@@ -53,10 +54,7 @@ def rpsls_run(total_no_of_runs,p1order,p2order):
                     print("player two choice at round "+str(count)+":",rpsls[p2])
                     p2_ch.append(p2)
             turn+=1
-
         a.game(p1,p2) # game running part
-
-        #print("The winner is : ",a.compute_res())
         count+=1
         turn=0
 
@@ -78,4 +76,3 @@ def rpsls_run(total_no_of_runs,p1order,p2order):
 
     return score_p1,score_p2
 
-#run(50,0,1)
