@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def data_plot(game_no,score_p1,score_p2,runs,p1_order,p2_order,game_choice):
+	""" plotting the graph """
 	game=""
 	if game_choice==1:
 		game="Rock Paper Scissor"
@@ -31,9 +32,6 @@ if __name__=="__main__":
  	# to remove the old files
 	file_to_save_result="result.txt"
 	temp1=1
-	games_list=[]
-	p1_score_list=[]
-	p2_score_list=[]
 	if file_to_save_result in os.listdir():
 		os.remove(file_to_save_result)
 
@@ -41,19 +39,13 @@ if __name__=="__main__":
 	Enter the Game of choice you want to play ----------------> \n \
 	1. rock paper scissor \n \
 	2. rock paper scissor lizard spock \n")
-
-	read_user=int(input("Enter your choice 1 or 2:"))
-	#no_of_players=int(input("Enter the number of players need to compete (Eg : 2):"))
-
-	#for i in range(1,no_of_players):
-
-	p1_order=int(input("Enter the player one order :"))
-	p2_order=int(input("Enter the player two order :"))
+	read_user=int(input("Enter the Game of your choice 1 or 2:"))
+	p1_order=int(input("Enter the player one order of agent (Eg : 0) :"))
+	p2_order=int(input("Enter the player two order of agent (Eg : 2):"))
 	t_run=int(input("Enter the total number of runs player need to compete (not less than 10 runs) eg: 20 :"))
 	read_games=int(input("Enter the number of games players need to play eg: 5 :"))
 
 	while temp1 <= read_games:
-		games_list.append(str(temp1))
 		if read_user==1:
 			with open("result.txt",'a') as result:
 				result.write("\n")
@@ -69,8 +61,5 @@ if __name__=="__main__":
 			print("\nRock paper scissor lizard spock Game :",temp1)
 			score_p1,score_p2=rpsls_run(t_run,p1_order,p2_order)
 
-		p1_score_list.append(score_p1)
-		p2_score_list.append(score_p2)
-
-		data_plot(temp1,score_p1,score_p2,t_run,p1_order,p2_order,read_user)
+		data_plot(temp1,score_p1,score_p2,t_run,p1_order,p2_order,read_user) # graph plotting
 		temp1+=1
