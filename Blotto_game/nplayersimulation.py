@@ -4,11 +4,7 @@ import zmq
 import argparse
 import math
 import numpy as np
-#TODO
-'''
-Some of the Global Variables might be required to read it from the config file or get it from the frontEnd.
-Global Variables are read from command line 
-'''
+
 game="BlottoGame"
 implementation = "1v1"
 noOfTroops = 8
@@ -72,7 +68,7 @@ def findProbableDistribution(distributionOfOpponent,numberOfTroops,memory,noOfBa
         battleFieldsToBeWon = (noOfBattleFields/2) + 1
     else:
         battleFieldsToBeWon = (noOfBattleFields+1)/2
-    choicesForBattleField=random.sample(range(0, noOfBattleFields), battleFieldsToBeWon)
+    choicesForBattleField=random.sample(range(0, int(noOfBattleFields)), int(battleFieldsToBeWon))
     distribution = initializeDistributionOfTroops(noOfBattleFields)
     for i in choicesForBattleField:
 
