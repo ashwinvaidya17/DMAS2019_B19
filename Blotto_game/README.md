@@ -4,7 +4,7 @@ This folder contains the necessary steps required to run simulation for Blotto g
 ## Running without frontend 
 ### The simulation will run for 100 rounds 
    
-1. To run the code without UI simulation
+   To run the code without UI simulation
    Default command
    
    python 2playerssimulation.py --troops 8 --battlefields 3 --orderofagent1 3 --orderofagent2 1  --simulation 0
