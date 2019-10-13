@@ -1,5 +1,5 @@
 # DMAS2019_B19
-This repository contains the Apha version submission for the Design of Multi-agent systems by the group ``B-19``. 
+This repository contains the Beta version submission for the Design of Multi-agent systems by the group ``B-19``. 
 
 # Title : "Higher order Agents in zero sum game"
 
@@ -44,6 +44,7 @@ Follow the below steps to run the Game:
 7. Then, you need to enter the number of Games that agents need to play (eg,5 games).
 8. After the simulation ends, you find the ``result.txt`` file in the rsp&rpsls folder, which stores the result of the game.
 
+#### Note: Please enter the number of games of less than five since it generates graph 
 ## Rock Paper Scissors Approach 2
 
 Follow the steps to run the game:
