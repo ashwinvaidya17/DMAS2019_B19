@@ -9,7 +9,7 @@ class tom():
     def __init__(self):
         self.p1_order=0 # Getting the player 1 order
         self.p2_order=0 # Getting the player 2 order
-        self.zero_order_decision=0
+        self.zero_order_decision=0 
         self.first_order_decision=0
         self.higher_order_decision=0
         self.randflag=0 #global
@@ -17,7 +17,7 @@ class tom():
         self.first_flag=0 # variable to check the first order TOM state
 
 
-
+    # Assigning agent functionality ------------------------------------------
     def agents_functionality(self,p_name,p_order,p1_ch,p2_ch):
         self.p1_order=None # Getting the player 1 order
         self.p2_order=None# Getting the player 2 order
@@ -111,13 +111,10 @@ class tom():
         #print("Zero order decision :",self.zero_order_decision)
         return self.zero_order_decision
 
-
+    # First order TOM computation 
     def first_order(self,p1_ch,p2_ch):
-        #print("zero order state:",self.base_flag)
         if not self.base_flag==1:
-            #print("im calling zero")
             self.zero_order(p1_ch,p2_ch)
-
         if self.randflag==1:
             first_order_res=self.response(random.choice(self.final_store)) # first order result
             first_order_res=self.response(first_order_res) # taking the decision based on zero order
@@ -126,28 +123,22 @@ class tom():
         self.first_order_decision=first_order_res
         #print("first order decision :",self.first_order_decision)
         return self.first_order_decision
-
+    
+    # Higher order TOM computation
     def higher_order(self,order,p1_ch,p2_ch):
-
         if not self.base_flag==1:
             self.zero_order(p1_ch,p2_ch)
         if not self.first_flag==1:
             self.first_order(p1_ch,p2_ch)
-            
         self.higher_order_decision=self.first_order_decision
-
         while order > 1:
-            #print("first order state :",self.first_flag)
-
             if self.randflag==1:
                 higher_order_res=self.response(random.choice(self.final_store)) # first order result
                 higher_order_res=self.response(higher_order_res) # taking the decision based on zero order
             else:
                 higher_order_res=self.response(self.higher_order_decision)
-
             print("order : "+str(order)+" decision : "+str(higher_order_res))
-
             self.higher_order_decision=higher_order_res
             order=order-1
-        #print("second order decision :",self.second_order_decision)
+        
         return self.higher_order_decision
