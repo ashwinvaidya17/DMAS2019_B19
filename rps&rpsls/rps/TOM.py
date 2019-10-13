@@ -21,13 +21,13 @@ class tom():
     def agents_functionality(self,p_name,p_order,p1_ch,p2_ch):
         self.p1_order=None # Getting the player 1 order
         self.p2_order=None# Getting the player 2 order
-        print("player 1 choice @ each round ",p1_ch)
-        print("player 2 choice @ each round",p2_ch)
+        #print("player 1 choice @ each round ",p1_ch)
+        #print("player 2 choice @ each round",p2_ch)
 
         # Assigning player names and functionality
         if p_name=="p1":
             self.p1_order=p_order
-            print("p1 order",self.p1_order)
+            #print("p1 order",self.p1_order)
             if self.p1_order==0:
                 self.base_flag=1
                 return self.zero_order(p1_ch,p2_ch)
