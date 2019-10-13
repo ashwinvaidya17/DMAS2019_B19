@@ -4,6 +4,7 @@ Game module of the rock paper scissor game
 class rps_game():
     def __init__(self):
         #initialiser
+        # variable declaration
         self.p1_score=0
         self.p2_score=0
         self.p1_score_collect=[]
@@ -18,7 +19,7 @@ class rps_game():
         self.choice={1:"rock",2:"paper",3:"scissor"}
         self.p1_choice=self.choice[self.p1]
         self.p2_choice=self.choice[self.p2]
-
+        # game logic part ------------------------------------------------------------------------
         if (self.p1_choice==self.p2_choice):
             self.p1_score=self.p1_score
             self.p2_score=self.p2_score
@@ -27,7 +28,7 @@ class rps_game():
             self.p1_score=self.p1_score+1
         elif ((self.p1_choice==self.choice[1]) and (self.p2_choice==self.choice[2])) or ((self.p1_choice==self.choice[2]) and (self.p2_choice==self.choice[3])) or ((self.p1_choice==self.choice[3]) and (self.p2_choice==self.choice[1])):
             self.p2_score=self.p2_score+1
-
+        # -------------------------------------------------------------------------------------------
         self.p1_score_collect.append(self.p1_score)
         self.p2_score_collect.append(self.p2_score)
 
