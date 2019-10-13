@@ -143,9 +143,7 @@ class tom():
                 higher_order_res=self.response(higher_order_res) # taking the decision based on zero order
             else:
                 higher_order_res=self.response(self.higher_order_decision)
-
-            print("order : "+str(order)+" decision : "+str(higher_order_res))
-
+            #print("order : "+str(order)+" decision : "+str(higher_order_res))
             self.higher_order_decision=higher_order_res
             order=order-1
         return self.higher_order_decision
