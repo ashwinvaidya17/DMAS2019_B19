@@ -6,7 +6,7 @@ This repository contains the Beta version submission for the Design of Multi-age
 # Instructions 
 ## Game working principle
 ### Rock Paper Scissors
-1. The game demo is between the zero order agent vs first order agent for 't' number of runs/rounds to the 'n' number of games.
+1. The game demo is between the n order agent vs n order agent for 't' number of runs/rounds to the 'n' number of games.
 2. The agents need to choose between on of the available choices as follows:         
     1. Rock 
     2. Scissor 
@@ -16,12 +16,12 @@ This repository contains the Beta version submission for the Design of Multi-age
 5. Players with the higerst score is determined as the winner.
 
 ### Rock Paper Scissors Lizard Spock
-1. The game demo is between the zero order agent vs first order agent for 't' number of runs/rounds to the 'n' number of games.
+1. The game demo is between n order agent vs n order agent for 't' number of runs/rounds to the 'n' number of games.
 2. The agents need to choose between on of the available choices as follows:         
     1. Rock 
     2. Scissor 
     3. Paper 
-    4. LizGoard 
+    4. Lizard 
     5. Spock
 3. Each player needs to choose one of the above options. Based on the rules the player will win/lose.
 4. The winner of the game is computed based on the cumulative score gained by each players in the 't' rounds/runs.
@@ -44,7 +44,7 @@ Follow the below steps to run the Game:
 7. Then, you need to enter the number of Games that agents need to play (eg,5 games).
 8. After the simulation ends, you find the ``result.txt`` file in the rsp&rpsls folder, which stores the result of the game.
 
-#### Note: Please enter the number of games of less than five since it generates graph 
+#### Note: Please enter the number of games of less than five since the code generates graph 
 ## Rock Paper Scissors Approach 2
 
 Follow the steps to run the game:
