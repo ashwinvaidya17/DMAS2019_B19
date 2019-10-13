@@ -7,8 +7,8 @@ class rpsls():
         self.p1_score=0 #variable to calculate p1 win matches
         self.p2_score=0 #variable to calculate p2 win matches
         self.draw=0 # variable to calculate draw matches
-        self.p1_score_collect=[]
-        self.p2_score_collect=[]
+        self.p1_score_collect=[] # list to store the player 1 scores
+        self.p2_score_collect=[] # list to store the player 2 scores
         self.winner=None
 
     def game(self,p1,p2):
@@ -19,7 +19,8 @@ class rpsls():
         self.choice={1:"rock",2:"paper",3:"scissor",4:"lizard",5:"spock"}
         self.p1_choice=self.choice[self.p1]
         self.p2_choice=self.choice[self.p2]
-
+        # -----------------------------------------------------------------------------
+        # Game logic part
         if (self.p1_choice==self.p2_choice):
             self.p1_score=self.p1_score
             self.p2_score=self.p2_score
@@ -54,10 +55,9 @@ class rpsls():
 
         elif ((self.p1_choice==self.choice[3]) and (self.p2_choice==self.choice[5])) or ((self.p1_choice==self.choice[1]) and (self.p2_choice==self.choice[5])):
             self.p2_score+=1
-
+        # -----------------------------------------------------------------------------------
         self.p1_score_collect.append(self.p1_score)
         self.p2_score_collect.append(self.p2_score)
-
         print("Player one score :",self.p1_score)
         print("Player two score :",self.p2_score)
         print("Draw:",self.draw)
