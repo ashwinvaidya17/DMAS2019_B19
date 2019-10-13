@@ -60,7 +60,7 @@ Follow the steps to run the game:
  Follow steps given below to run 2 player simulation of Blotto Game. Blotto Game for 2 players can also be run with frontend.
 
 ## Running without frontend 
-### TheThis simulation will run for 100 rounds 
+### The simulation will run for 100 rounds 
    
    To run the code without UI simulation
    Default command
