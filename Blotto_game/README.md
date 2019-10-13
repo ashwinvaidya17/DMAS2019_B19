@@ -38,7 +38,7 @@ Follow the steps given below to run n player simulation for Blotto game. Blotto 
 ### The simulation will run for 100 rounds
 Default command 
 
-   python nplayersimulation.py --troops 16 --battlefields 6 --numberOfPlayers 4 --orderOfAgent 4,4,3,3 --simulation 0
+   python nplayersimulation.py --troops 16 --battlefields 6 --numberOfPlayers 4 --orderOfAgent 2,2,1,1 --simulation 0
    These are compulsory command line arguments
    - troops -> Number of troops
    
