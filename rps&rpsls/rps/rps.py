@@ -16,7 +16,7 @@ def rps_run(total_no_of_runs,p1order,p2order):
     p1_ch=[] # player 1 choice
     p2_ch=[] # player 2 choice
     tom=TOM.tom() # calling the TOM function
-    a=game.rps_game()
+    a=game.rps_game() # calling the game module
     res_limit=5 # limit for the order of agents trails
     t_runs=total_no_of_runs # total number of runs
     file_to_save_result="result.txt" # storage file for the output of each game result
@@ -59,13 +59,9 @@ def rps_run(total_no_of_runs,p1order,p2order):
 
          # game running part
         a.game(p1,p2)
-        #print("The winner is : ",a.compute_res())
         count+=1
         turn=0
-
-
     game_summary,score_p1,score_p2=a.compute_res()
-
     with open(file_to_save_result,'a') as result:
         result.write("The choices of player 1 :")
         result.write(str(p1_ch))
@@ -76,7 +72,7 @@ def rps_run(total_no_of_runs,p1order,p2order):
         result.write("The result of the game :")
         result.write(str(game_summary))
         result.write("\n")
-
+        
     print("The choices of player 1 :",p1_ch)
     print("The choices of player 2 :",p2_ch)
     print(score_p1)
@@ -85,4 +81,3 @@ def rps_run(total_no_of_runs,p1order,p2order):
 
     return score_p1,score_p2
 
-#run(20,0,1)
