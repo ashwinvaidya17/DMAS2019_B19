@@ -22,8 +22,8 @@ class tom():
         # ----------------------------- defining the agent functionality ---------------------------------
         self.p1_order=None # Getting the player 1 order
         self.p2_order=None# Getting the player 2 order
-        print("player 1 choice @ each round ",p1_ch)
-        print("player 2 choice @ each round",p2_ch)
+        #print("player 1 choice @ each round ",p1_ch)
+        #print("player 2 choice @ each round",p2_ch)
 
         # Assigning player names and functionality
         if p_name=="p1":
