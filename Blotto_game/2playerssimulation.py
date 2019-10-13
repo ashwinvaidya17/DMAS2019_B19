@@ -5,11 +5,6 @@ import argparse
 import math
 import numpy as np
 
-# TODO
-'''
-Some of the Global Variables might be required to read it from the config file or get it from the frontEnd.
-Global Variables are read from command line 
-'''
 game = "BlottoGame"
 implementation = "1v1"
 noOfTroops = 8
@@ -102,7 +97,7 @@ def findProbableDistribution(distributionOfOpponent, numberOfTroops, memory, noO
         battleFieldsToBeWon = (noOfBattleFields / 2) + 1
     else:
         battleFieldsToBeWon = (noOfBattleFields + 1) / 2
-    choicesForBattleField = random.sample(range(0, noOfBattleFields), battleFieldsToBeWon)
+    choicesForBattleField = random.sample(range(0, int(noOfBattleFields)), int(battleFieldsToBeWon))
     distribution = initializeDistributionOfTroops(noOfBattleFields)
     # print("Initialize distribution",distribution)
     for i in choicesForBattleField:
@@ -192,7 +187,6 @@ def getJsonToSend(game, implementation, noOfTroops, noOfBattleFields, totalPlaye
     infoJson["total_players"] = totalPlayers
     infoJson["max_wins"] = maxWins
     distributionOfTroops = []
-    # TODO Currently the code is hardcoded for only 2 agents. Needs to add support for more agent
     distributionJson = {}
     distributionJson["Name_of_the_Agent"] = "Agent" + str(1)
     distributionJson["distribution"] = agent1Distribution
