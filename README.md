@@ -6,7 +6,7 @@ This repository contains the Final version submission for the Design of Multi-ag
 # Instructions 
 ## Game working principle
 ### Rock Paper Scissors
-1. The game demo is between the n order agent vs n order agent for 't' number of runs/rounds to the 'n' number of games.
+1. The game demo is between the n order agent vs n order agent, in 't' number of runs/rounds for the 'n' number of games.
 2. The agents need to choose between on of the available choices as follows:         
     1. Rock 
     2. Scissor 
@@ -16,7 +16,7 @@ This repository contains the Final version submission for the Design of Multi-ag
 5. Players with the higerst score is determined as the winner.
 
 ### Rock Paper Scissors Lizard Spock
-1. The game demo is between n order agent vs n order agent for 't' number of runs/rounds to the 'n' number of games.
+1. The game demo is between n order agent vs n order agent, in 't' number of runs/rounds for the 'n' number of games.
 2. The agents need to choose between on of the available choices as follows:         
     1. Rock 
     2. Scissor 
@@ -37,9 +37,9 @@ Follow the below steps to run the Game:
 3. First you need to enter the "Game of choice"
     1. rock paper scissors
     2. rock paper scissors lizard spock
-4. Then you need to enter the player one order (for this demo enter '0' for the player one).
-5. After that, you need to enter the player Two order (for this demo enter '1' for the player two).
-6. At the next step, you need to enter the number of rounds/runs that the agents need to play for one round (eg, 15 round/runs).
+4. Then you need to enter the order of agent for player one as prompted in the console.
+5. After that, you need to enter the order of agent for player Two as prompted in the console.
+6. At the next step, you need to enter the number of rounds/runs that the agents need to play for one round (eg, 50 round/runs).
 7. Then, you need to enter the number of Games that agents need to play (eg,5 games).
 8. After the simulation ends, you find the ``result.txt`` file in the rsp&rpsls folder, which stores the result of the game.
 #### Note: Please enter the number of games of less than five since the code generates graph 
