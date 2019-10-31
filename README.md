@@ -5,6 +5,7 @@ This repository contains the Final version submission for the Design of Multi-ag
 
 # Instructions 
 ## Game working principle
+#### Probability Approach
 ### Rock Paper Scissors
 1. The game demo is between the n order agent vs n order agent, in 't' number of runs/rounds for the 'n' number of games.
 2. The agents need to choose between on of the available choices as follows:         
@@ -44,7 +45,7 @@ Follow the below steps to run the Game:
 8. After the simulation ends, you find the ``result.txt`` file in the rsp&rpsls folder, which stores the result of the game.
 #### Note: Please enter the number of games of less than five since the code generates graph 
 
-## Rock Paper Scissors Approach 2
+## Rock Paper Scissors - Probability and Elemental Analysis approach
 
 Follow the steps to run the game:
 1. Navigate to the directory Rock_Paper_Scissor_Approach_2 in the linux terminal.
