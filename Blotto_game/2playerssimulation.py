@@ -98,7 +98,7 @@ def findProbableDistribution(distributionOfOpponent, numberOfTroops, memory, noO
         battleFieldsToBeWon = (noOfBattleFields / 2) + 1
     else:
         battleFieldsToBeWon = (noOfBattleFields + 1) / 2
-    choicesForBattleField = random.sample(range(0, noOfBattleFields), battleFieldsToBeWon)
+    choicesForBattleField = random.sample(range(0, noOfBattleFields), int(battleFieldsToBeWon))
     distribution = initializeDistributionOfTroops(noOfBattleFields)
     # print("Initialize distribution",distribution)
     for i in choicesForBattleField:
