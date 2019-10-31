@@ -11,6 +11,7 @@ noOfTroops = 8
 noOfBattleFields = 3
 totalPlayers = 2
 memory = 0
+strategy = 1
 
 #Will return json with initial configuration of -1 troops at every battlefield
 '''
@@ -68,7 +69,7 @@ def findProbableDistribution(distributionOfOpponent,numberOfTroops,memory,noOfBa
         battleFieldsToBeWon = (noOfBattleFields/2) + 1
     else:
         battleFieldsToBeWon = (noOfBattleFields+1)/2
-    choicesForBattleField=random.sample(range(0, int(noOfBattleFields)), int(battleFieldsToBeWon))
+    choicesForBattleField=random.sample(range(0, noOfBattleFields), int(battleFieldsToBeWon))
     distribution = initializeDistributionOfTroops(noOfBattleFields)
     for i in choicesForBattleField:
 
@@ -132,19 +133,22 @@ def distributeTroopsRandomly(troops, battlefields):
     return troops_allocation
 
 #Troop distribution strategy for odd theory of mind agent
-def distributionStrategyForOdd(agent,distributionInfo,noOfTroops,noOfBattleFields):
+def distributionStrategyForOdd(agent,distributionInfo,noOfTroops,noOfBattleFields,strategy):
     #Support for both the strategy
     agentName = 'Agent' + str(agent+1)
     distribution = distributionInfo[agentName]['distribution']
     orderOfAgent = int(distributionInfo[agentName]['Order'])
     while(orderOfAgent > 0 ):
-        #sortedDistributionForOpponent = sorted(distribution, key=lambda i: i['troops'])
-        distribution = findProbableDistribution(distribution,noOfTroops,memory,noOfBattleFields)
+        sortedDistributionForOpponent = sorted(distribution, key=lambda i: i['troops'])
+        if(strategy==2):
+            distribution = findDistributionToBeatAsc(sortedDistributionForOpponent,noOfTroops)
+        elif(strategy==3):
+            distribution = findProbableDistribution(distribution,noOfTroops,memory,noOfBattleFields)
         orderOfAgent = orderOfAgent - 1
     return distribution
 
 #Troop distribution strategy for even theory of mind agents
-def distributionStrategyForEven(agent, distributionInfo, noOfTroops, noOfBattlefields,noOfPlayers):
+def distributionStrategyForEven(agent, distributionInfo, noOfTroops, noOfBattlefields,noOfPlayers,strategy):
     agentName = 'Agent' + str(agent+1)
     distributionOfOpponent = []
     maxBattleField = [0]*noOfBattleFields
@@ -160,21 +164,30 @@ def distributionStrategyForEven(agent, distributionInfo, noOfTroops, noOfBattlef
 
     distribution = getJsonForDistribution(maxBattleField)
     while(orderOfAgents > 0):
-        #sortedDistributionForOpponent = sorted(distribution, key=lambda i: i['troops'])
-        distribution = findProbableDistribution(distribution,noOfTroops,memory,noOfBattleFields)
+        sortedDistributionForOpponent = sorted(distribution, key=lambda i: i['troops'])
+        if(strategy==2):
+            distribution = findDistributionToBeatAsc(sortedDistributionForOpponent,noOfTroops)
+        elif(strategy==3):
+            distribution = findProbableDistribution(distribution,noOfTroops,memory,noOfBattleFields)
         orderOfAgents = orderOfAgents - 1
     return distribution
 
 #Get the distribution for the agent
-def getDistribution(listAgentInfo,noOfPlayers,noOfBattleFields):
+def getDistribution(listAgentInfo,noOfPlayers,noOfBattleFields,strategy):
     updateListAgentInfo = listAgentInfo
 
     for i in range(noOfPlayers):
         agentName = 'Agent' + str(i+1)
         if(int(listAgentInfo[agentName]['Order']) % 2 == 0):
-            updateListAgentInfo[agentName]['distribution'] = distributionStrategyForEven(i,listAgentInfo,noOfTroops, noOfBattleFields, noOfPlayers)
+            if(strategy==1):
+                updateListAgentInfo[agentName]['distribution'] = distributeTroopsRandomly(noOfTroops,noOfBattleFields)
+            else:
+                updateListAgentInfo[agentName]['distribution'] = distributionStrategyForEven(i,listAgentInfo,noOfTroops, noOfBattleFields, noOfPlayers,strategy)
         else:
-            updateListAgentInfo[agentName]['distribution'] = distributionStrategyForOdd(i,listAgentInfo,noOfTroops,noOfBattleFields)
+            if(strategy==1):
+                updateListAgentInfo[agentName]['distribution'] = distributeTroopsRandomly(noOfTroops,noOfBattleFields)
+            else:
+                updateListAgentInfo[agentName]['distribution'] = distributionStrategyForOdd(i,listAgentInfo,noOfTroops,noOfBattleFields,strategy)
     return updateListAgentInfo
 
 
@@ -207,6 +220,7 @@ if __name__ == "__main__" :
     parser.add_argument("--numberOfPlayers",type=int, help="Total number of players for the game")
     parser.add_argument("--orderOfAgent",nargs="*", help="Theory of mind order of agents")
     parser.add_argument("--simulation",type=int,help="1 to unable simulation, 0 to disable simulation")
+    parser.add_argument("--strategy",type=int,help="1 for Random Strategy, 2 for Most Optimal Winning Strategy, 3 for Random Winning Strategy")
     #parser.add_argument("--strategy",help="0 for most optimal strategy, 1 for random winning strategy")
     args = parser.parse_args()
     simulation_round = 0
@@ -217,6 +231,7 @@ if __name__ == "__main__" :
     noOfPlayers = int(args.numberOfPlayers)
     orderOfAgents = (args.orderOfAgent)
     simulation = int(args.simulation)
+    strategy = int(args.strategy)
     #strategy = int(args.strategy)
     if(simulation):
         simulation_round = 0
@@ -245,7 +260,7 @@ if __name__ == "__main__" :
          simulation_round = simulation_round + 1
          #print getJsonForDistribution(agentA)
          
-         updateListInfo = getDistribution(listAgentInfo,noOfPlayers,noOfBattleFields)
+         updateListInfo = getDistribution(listAgentInfo,noOfPlayers,noOfBattleFields,strategy)
 
          winnerList = getWinner(updateListInfo,noOfPlayers,noOfBattleFields)
 

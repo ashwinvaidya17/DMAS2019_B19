@@ -5,6 +5,7 @@ import argparse
 import math
 import numpy as np
 
+
 game = "BlottoGame"
 implementation = "1v1"
 noOfTroops = 8
@@ -90,14 +91,14 @@ def findProbableDistribution(distributionOfOpponent, numberOfTroops, memory, noO
     numberOfTroopsRemaining = numberOfTroops
     distribution = []
     '''
-    Experimental. Battles to be won, tells for a battlefields minimum number of battles to be won. 
+    Battles to be won, tells for a battlefields minimum number of battles to be won. 
     And the battleFields to be won are chosen randomly from the given battlefields 
     '''
     if (noOfBattleFields % 2 == 0):
         battleFieldsToBeWon = (noOfBattleFields / 2) + 1
     else:
         battleFieldsToBeWon = (noOfBattleFields + 1) / 2
-    choicesForBattleField = random.sample(range(0, int(noOfBattleFields)), int(battleFieldsToBeWon))
+    choicesForBattleField = random.sample(range(0, noOfBattleFields), battleFieldsToBeWon)
     distribution = initializeDistributionOfTroops(noOfBattleFields)
     # print("Initialize distribution",distribution)
     for i in choicesForBattleField:
@@ -115,7 +116,7 @@ def findProbableDistribution(distributionOfOpponent, numberOfTroops, memory, noO
 
         if (distribution[i]['troops'] == -1):
             '''
-            This logic makes little sense as I am just distributing the remaining troops to a battlefield that has no troops.
+            distributing the remaining troops to a battlefield that has no troops.
             Rest all battlefields which are not necessary to be won to win the round still will have 0 troops 
             '''
 
@@ -147,22 +148,25 @@ def findDistributionToBeatDesc(sortedDistributionOfTheOpponent, numberOfTroops):
 
 # Will return the troops dostribution for higher order agent
 def distributeTroopsForHigherOrderAgent(distributionOfTheOpponent, distributionOfTheUser, orderOfTheAgent,
-                                        numberOfTroops, noOfBattleFields):
+                                        numberOfTroops, noOfBattleFields,strategy):
     jsonForDistribution = []
     # distributionReturn = getJsonForDistribution(distributionOfTheUser)
     jsonDistributionForOpponent = distributionOfTheOpponent
+    distributionReturn = distributionOfTheUser
     while (orderOfTheAgent > 0):
         sortedDistributionForOpponent=sorted(jsonDistributionForOpponent, key=lambda i: i['troops'])
         # print("Sorted Distribution of Oppenent ",sortedDistributionForOpponent)
-        distributionReturn = findDistributionToBeatAsc(sortedDistributionForOpponent, numberOfTroops)
-
+        if(strategy==2):
+            distributionReturn = findDistributionToBeatAsc(sortedDistributionForOpponent,noOfTroops)
+        elif(strategy==3):
+            distributionReturn = findProbableDistribution(jsonDistributionForOpponent, numberOfTroops,1,noOfBattleFields)
         jsonDistributionForOpponent = distributionReturn
         orderOfTheAgent = orderOfTheAgent - 1
     return distributionReturn
 
-
 # Distribute the troops randomly in given battlefields
 def distributeTroopsRandomly(troops, battlefields):
+    print("Random distribution")
     split = random.sample(range(0, troops + 1), battlefields - 1)
     split = sorted(split)
     split.append(troops)
@@ -187,6 +191,7 @@ def getJsonToSend(game, implementation, noOfTroops, noOfBattleFields, totalPlaye
     infoJson["total_players"] = totalPlayers
     infoJson["max_wins"] = maxWins
     distributionOfTroops = []
+
     distributionJson = {}
     distributionJson["Name_of_the_Agent"] = "Agent" + str(1)
     distributionJson["distribution"] = agent1Distribution
@@ -216,7 +221,6 @@ def getJsonToSend(game, implementation, noOfTroops, noOfBattleFields, totalPlaye
     infoJson["After_battle_results"] = afterBattleResults
     return infoJson
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # Command line arguments
@@ -225,22 +229,22 @@ if __name__ == "__main__":
     parser.add_argument("--orderofagent1", help="Theory of mind order of the agent1")
     parser.add_argument("--orderofagent2", help="Theory of mind order of the agent2")
     parser.add_argument("--simulation", help="1 to unable simulation, 0 to disable simulation")
+    parser.add_argument("--strategy",help="1 for Random Strategy, 2 for Most Optimal Winning Strategy, 3 for Random Winning Strategy")
     # parser.add_argument("--strategy",help="0 for most optimal strategy, 1 for random winning strategy")
     args = parser.parse_args()
     simulation_round = 0
     print (args)
     noOfTroops = int(args.troops)
     noOfBattleFields = int(args.battlefields)
-
     agent1_order = int(args.orderofagent1)
     agent2_order = int(args.orderofagent2)
     simulation = int(args.simulation)
+    strategy = int(args.strategy)
     # strategy = int(args.strategy)
     if (simulation):
         simulationToRun = 1
     else:
         simulationToRun = 100
-
     agent1 = distributeTroopsRandomly(noOfTroops, noOfBattleFields)
     agent2 = distributeTroopsRandomly(noOfTroops, noOfBattleFields)
     agent1_wins = 0
@@ -250,10 +254,29 @@ if __name__ == "__main__":
         simulation_round = simulation_round + 1
         winner, val = getWinner(agent1, agent2)
         # print getJsonForDistribution(agentA)
-        agent2_higherOrder = distributeTroopsForHigherOrderAgent(agent1, agent2, agent2_order, noOfTroops,
-                                                                 noOfBattleFields)
-        agent1_higherOrder = distributeTroopsForHigherOrderAgent(agent1, agent2, agent1_order, noOfTroops,
-                                                                 noOfBattleFields)
+
+        #If theory of mind order of the agent is 0, then the agent uses the same distribution
+        if(agent2_order==0):
+          agent2_higherOrder = agent2
+        else:
+          #If the strategy is 1-Random, 2 - Most Optimal Winning Strategy, 3 - Random Winning Strategy
+          if(strategy==1):
+             agent2_higherOrder = distributeTroopsRandomly(noOfTroops,noOfBattleFields)
+          else:
+             agent2_higherOrder = distributeTroopsForHigherOrderAgent(agent1, agent2, agent2_order, noOfTroops,
+                                                                 noOfBattleFields,strategy)
+
+        if(agent1_order==0):
+            agent1_higherOrder = agent1
+        else:
+            if(strategy==1):
+                agent1_higherOrder = distributeTroopsRandomly(noOfTroops,noOfBattleFields)
+            else:
+                agent1_higherOrder = distributeTroopsForHigherOrderAgent(agent1, agent2, agent1_order, noOfTroops,
+                                                                 noOfBattleFields,strategy)
+
+        print("Agent 1 higher order",agent1_higherOrder)
+
         winner, afterBattleDistribution = getWinner(agent1_higherOrder, agent2_higherOrder)
         if (winner == 1):
             maxWins = "Agent1"
@@ -264,7 +287,7 @@ if __name__ == "__main__":
         else:
             maxWins = "Draw"
         if ((simulation_round % 10) == 0):
-            strng_to_prnt = "Wins after " + str(simulation_round) + " rounds are: "
+            strng_to_prnt = "Wins after " + str(simulation_round) + " games are: "
             print(strng_to_prnt)
             print("Agent1 ", agent1_wins)
             print("Agent2 ", agent2_wins)
