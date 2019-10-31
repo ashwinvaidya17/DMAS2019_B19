@@ -219,7 +219,7 @@ if __name__ == "__main__" :
     #parser.add_argument("--orderofagent2",help="Theory of mind order of the agent2")
     parser.add_argument("--numberOfPlayers",type=int, help="Total number of players for the game")
     parser.add_argument("--orderOfAgent",nargs="*", help="Theory of mind order of agents")
-    parser.add_argument("--simulation",type=int,help="1 to unable simulation, 0 to disable simulation")
+    #parser.add_argument("--simulation",type=int,help="1 to unable simulation, 0 to disable simulation")
     parser.add_argument("--strategy",type=int,help="1 for Random Strategy, 2 for Most Optimal Winning Strategy, 3 for Random Winning Strategy")
     #parser.add_argument("--strategy",help="0 for most optimal strategy, 1 for random winning strategy")
     args = parser.parse_args()
@@ -230,13 +230,11 @@ if __name__ == "__main__" :
 
     noOfPlayers = int(args.numberOfPlayers)
     orderOfAgents = (args.orderOfAgent)
-    simulation = int(args.simulation)
+    #simulation = int(args.simulation)
     strategy = int(args.strategy)
     #strategy = int(args.strategy)
-    if(simulation):
-        simulation_round = 0
-    else:
-        simulation_round = 0
+    
+    simulation_round = 0
     orderOfAgents = orderOfAgents[0].split(",")
     main_winner_list = [0]*(noOfPlayers+1)
     troopsDistribution = []
