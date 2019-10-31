@@ -66,7 +66,7 @@ Follow the steps to run the game:
    To run the code without UI simulation
    Default command
    
-   python 2playerssimulation.py --troops 8 --battlefields 3 --orderofagent1 3 --orderofagent2 1  --simulation 0
+   python 2playerssimulation.py --troops 8 --battlefields 3 --orderofagent1 3 --orderofagent2 1  --simulation 0 --strategy 3
 
 These are compulsory command line arguments.
 
@@ -80,6 +80,10 @@ These are compulsory command line arguments.
 
 - simulation =  0 if you don't want to see UI simulation.
                 1 if you want to see UI simulation
+                
+- strategy =    1 for Random Strategy
+                2 for Most Optimal Winning Strategy
+                3 for Random Winning Strategy
                 
  ## Running with frontend    
  ### The simulation will run for 1 round 
@@ -97,7 +101,7 @@ Follow the steps given below to run n player simulation for Blotto game. Blotto 
 ### The simulation will run for 100 rounds
 Default command 
 
-   python nplayersimulation.py --troops 16 --battlefields 6 --numberOfPlayers 4 --orderOfAgent 2,2,1,1 --simulation 0
+   python nplayersimulation.py --troops 16 --battlefields 6 --numberOfPlayers 4 --orderOfAgent 2,2,1,1  --strategy 3
    
    These are compulsory command line arguments
    
@@ -109,7 +113,9 @@ Default command
    
    - orderOfAgent -> comma seperated theory of mind order of agents
    
-   - simulation -> should be kept to 0
+   - strategy =    1 for Random Strategy
+                   2 for Most Optimal Winning Strategy
+                   3 for Random Winning Strategy
    
    
 
