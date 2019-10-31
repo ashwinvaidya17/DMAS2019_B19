@@ -1,7 +1,7 @@
 # DMAS2019_B19
 This repository contains the Final version submission for the Design of Multi-agent systems by the group ``B-19``. 
 
-# Title : "Higher order Agents in zero sum game"
+# Title : "Higher Order Theory of Mind in RPS, RPLS and Blotto Game"
 
 # Instructions 
 ## Game working principle
