@@ -276,18 +276,3 @@ if __name__ == "__main__" :
     strPrint = "Draw - `" + str(main_winner_list[noOfPlayers])
     print(strPrint)
 
-    '''    
-    print("Agent wins are ",agent1_wins,agent2_wins)
-    if(simulation and 0):
-        msgJson = getJsonToSend(game,implementation,noOfTroops,noOfBattleFields,totalPlayers,maxWins,agent1_higherOrder,agent2_higherOrder,afterBattleDistribution)
-        #print("Msg Json",msgJson)
-        
-        #zmq sending msg to the frontend
-        
-
-        context = zmq.Context()
-        #  Socket to talk to server
-        socket = context.socket(zmq.REP)
-        socket.bind("tcp://*:5555")
-        socket.send_json(msgJson)
-    '''
