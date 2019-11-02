@@ -39,7 +39,7 @@ Follow the below steps to run the Game:
     1. rock paper scissors
     2. rock paper scissors lizard spock
 4. Then you need to enter the order of agent for player one as prompted in the console.
-5. After that, you need to enter the order of agent for player Two as prompted in the console.
+5. After that, you need to enter the order of agent for player two as prompted in the console.
 6. At the next step, you need to enter the number of rounds/runs that the agents need to play for one round (eg, 50 round/runs).
 7. Then, you need to enter the number of Games that agents need to play (eg,5 games).
 8. After the simulation ends, you find the ``result.txt`` file in the rsp_rpsls folder, which stores the result of the game.
