@@ -42,7 +42,7 @@ Follow the below steps to run the Game:
 5. After that, you need to enter the order of agent for player Two as prompted in the console.
 6. At the next step, you need to enter the number of rounds/runs that the agents need to play for one round (eg, 50 round/runs).
 7. Then, you need to enter the number of Games that agents need to play (eg,5 games).
-8. After the simulation ends, you find the ``result.txt`` file in the rsp&rpsls folder, which stores the result of the game.
+8. After the simulation ends, you find the ``result.txt`` file in the rsp_rpsls folder, which stores the result of the game.
 #### Note: Please enter the number of games of less than five since the code generates graph for each individual game
 
 ## Rock Paper Scissors - Probability and Elemental Analysis approach
