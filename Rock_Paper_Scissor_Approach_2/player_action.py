@@ -6,6 +6,7 @@ player_1_memory = []
 # player confidence at the starting of the game between 10% and 90%
 player_1_confidence = round(random.uniform(0.1,0.9), 1)
 player_2_confidence = round(random.uniform(0.1,0.9), 1)
+player_confidence = round(random.uniform(0.1,0.9), 1)
 
 # Initialize global variable = 0
 player_loop_number = 0
@@ -122,9 +123,9 @@ def player_chooses_finally():
     
 # From the order the player will return the choice
 def player_will_choose(player_order, catch_order):   
-    global player_loop_number
+    global player_loop_number, player_confidence
     player_loop_number = 0 
-    player_confidence_assume = 0.8
+    player_confidence_assume = round(random.uniform(0.1,0.9), 1)
 
     # To calculate the probability of repeating elements
     # catch_order will store the value of iteration_order from Rock_paper_Scissor_Game.py
