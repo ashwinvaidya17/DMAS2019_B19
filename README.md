@@ -61,8 +61,6 @@ Follow the steps to run the game:
   Go to Blotto_game folder to run the Blotto Game simulation
   # Blotto Game(for 2 players)
  Follow steps given below to run 2 player simulation of Blotto Game. Blotto Game for 2 players can also be run with frontend.
-
-## Running without frontend 
 ### The simulation will run for 100 rounds
    Default command
    
