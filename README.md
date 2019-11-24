@@ -63,26 +63,18 @@ Follow the steps to run the game:
  Follow steps given below to run 2 player simulation of Blotto Game. Blotto Game for 2 players can also be run with frontend.
 
 ## Running without frontend 
-### The simulation will run for 100 rounds 
-   
-   To run the code without UI simulation
+### The simulation will run for 100 rounds
    Default command
    
    python 2playerssimulation.py --troops 8 --battlefields 3 --orderofagent1 3 --orderofagent2 1  --simulation 0 --strategy 3
 
 These are compulsory command line arguments.
-
 - troops -> Number of troops
-
 - battlefields -> Number of battlefields
-
 - orderofagent1 -> Theory of mind order of the agent1  (Order of agent1 should be higher than agent2 for this experiment)
-
 - orderofagent2 -> Theory of mind order of agent2
-
 - simulation =  0 if you don't want to see UI simulation.
                 1 if you want to see UI simulation
-                
 - strategy =    1 for Random Strategy
                 2 for Most Optimal Winning Strategy
                 3 for Random Winning Strategy
@@ -95,15 +87,10 @@ Default command
    python nplayersimulation.py --troops 16 --battlefields 6 --numberOfPlayers 4 --orderOfAgent 2,2,1,1  --strategy 3
    
    These are compulsory command line arguments
-   
    - troops -> Number of troops
-   
    - battlefields -> Number of battlefields
-   
    - numberOfPlayers -> Number of Players 
-   
    - orderOfAgent -> comma seperated theory of mind order of agents
-   
    - strategy =    1 for Random Strategy
                    2 for Most Optimal Winning Strategy
                    3 for Random Winning Strategy
