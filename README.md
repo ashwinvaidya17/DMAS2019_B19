@@ -34,9 +34,9 @@ Follow the steps to run the game:
 7. After each game a line graph will appear, which will show player's score with respect to rounds.
 8. After the simulation ends, results of each game will appear in the form of scatter plot.
 
-## Blotto-game 
+# Blotto-game 
   Go to Blotto_game folder to run the Blotto Game simulation
-  # Blotto Game(for 2 players)
+  ## Blotto Game(for 2 players)
  Follow steps given below to run 2 player simulation of Blotto Game. Blotto Game for 2 players can also be run with frontend.
 ### The simulation will run for 100 rounds
    Default command
@@ -54,7 +54,7 @@ These are compulsory command line arguments.
                 2 for Most Optimal Winning Strategy
                 3 for Random Winning Strategy
                 
-# Blotto Game(for n players)
+## Blotto Game(for n players)
 Follow the steps given below to run n player simulation for Blotto game. Blotto game for n players.
 ### The simulation will run for 100 rounds
 Default command 
