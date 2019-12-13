@@ -48,8 +48,6 @@ These are compulsory command line arguments.
 - battlefields -> Number of battlefields
 - orderofagent1 -> Theory of mind order of the agent1  (Order of agent1 should be higher than agent2 for this experiment)
 - orderofagent2 -> Theory of mind order of agent2
-- simulation =  0 if you don't want to see UI simulation.
-                1 if you want to see UI simulation
 - strategy =    1 for Random Strategy
                 2 for Most Optimal Winning Strategy
                 3 for Random Winning Strategy
