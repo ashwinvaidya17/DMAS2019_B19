@@ -41,7 +41,7 @@ Follow the steps to run the game:
 ### The simulation will run for 100 rounds
    Default command
    
-   python 2playerssimulation.py --troops 8 --battlefields 3 --orderofagent1 3 --orderofagent2 1  --simulation 0 --strategy 3
+   python 2playerssimulation.py --troops 8 --battlefields 3 --orderofagent1 3 --orderofagent2 1 --strategy 3
 
 These are compulsory command line arguments.
 - troops -> Number of troops
