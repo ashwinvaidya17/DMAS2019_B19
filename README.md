@@ -35,10 +35,10 @@ Follow the steps to run the game:
 8. After the simulation ends, results of each game will appear in the form of scatter plot.
 
 # Blotto-game 
-  Go to Blotto_game folder to run the Blotto Game simulation
+  Go to Blotto_game folder to run the Blotto Game simulation.
+  #### Note: For the pratical purposes we have consider TOM order of agents to be <=5. If you give the TOM order >5, then it will consider the max i.e. 5.
   ## Blotto Game(for 2 players)
  Follow steps given below to run 2 player simulation of Blotto Game.
-#### Note: For the pratical purposes we have consider TOM of agents to be <=5. If you give the TOM order >5, then it will consider the max i.e. 5.
 ### The simulation will run for 100 rounds
    Default command
    
@@ -55,7 +55,6 @@ These are compulsory command line arguments.
                 
 ## Blotto Game(for n players)
 Follow the steps given below to run n player simulation for Blotto game.
-#### Note:For the pratical purposes we have consider TOM of agents to be <=5. If you give the TOM order >5, then it will consider the max i.e. 5.
 ### The simulation will run for 100 rounds
 Default command 
 
