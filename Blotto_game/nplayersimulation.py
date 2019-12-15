@@ -4,6 +4,7 @@ import zmq
 import argparse
 import math
 import numpy as np
+from datetime import datetime
 
 game="BlottoGame"
 implementation = "1v1"
@@ -219,7 +220,6 @@ if __name__ == "__main__" :
     #parser.add_argument("--orderofagent2",help="Theory of mind order of the agent2")
     parser.add_argument("--numberOfPlayers",type=int, help="Total number of players for the game")
     parser.add_argument("--orderOfAgent",nargs="*", help="Theory of mind order of agents")
-    #parser.add_argument("--simulation",type=int,help="1 to unable simulation, 0 to disable simulation")
     parser.add_argument("--strategy",type=int,help="1 for Random Strategy, 2 for Most Optimal Winning Strategy, 3 for Random Winning Strategy")
     #parser.add_argument("--strategy",help="0 for most optimal strategy, 1 for random winning strategy")
     args = parser.parse_args()
@@ -227,13 +227,10 @@ if __name__ == "__main__" :
     print (args)
     noOfTroops = int(args.troops)
     noOfBattleFields = int(args.battlefields)
-
     noOfPlayers = int(args.numberOfPlayers)
     orderOfAgents = (args.orderOfAgent)
-    #simulation = int(args.simulation)
     strategy = int(args.strategy)
     #strategy = int(args.strategy)
-    
     simulation_round = 0
     orderOfAgents = orderOfAgents[0].split(",")
     main_winner_list = [0]*(noOfPlayers+1)
@@ -248,6 +245,9 @@ if __name__ == "__main__" :
         agentInfo = {}
         agent = "Agent" + str(i+1)
         agentInfo['distribution'] = distributeTroopsRandomly(noOfTroops,noOfBattleFields)
+        orderofAgent = orderOfAgents[i]
+        if(orderofAgent > 5):
+            orderofAgent = 5
         agentInfo['Order'] = orderOfAgents[i]
         agentInfo['wins'] = 0
         listAgentInfo[agent] = agentInfo
@@ -282,10 +282,15 @@ if __name__ == "__main__" :
          else:
              strPrint= "Result of simulation " + str(simulation_round) + " - draw"
              print (strPrint)
-
-    for i in range(0,noOfPlayers):
-        strPrint = "Player " + str(i+1) + " wins - " + str(main_winner_list[i])
+    with open("nplayersResult.txt", "a+") as f:
+        now = datetime.now()
+        current_time = now.strftime("\n%Y-%m-%d %H:%M:%S\n")
+        f.write(current_time)
+        for i in range(0,noOfPlayers):
+            strPrint = "Player" +str(i+1) +" order " + str(orderOfAgents[i]) + " wins - " + str(main_winner_list[i]) + "\n"
+            print(strPrint)
+            f.write(strPrint)
+        strPrint = "Draw - `" + str(main_winner_list[noOfPlayers]) + "\n"
         print(strPrint)
-    strPrint = "Draw - `" + str(main_winner_list[noOfPlayers])
-    print(strPrint)
-
+        f.write(strPrint)
+        f.close()
