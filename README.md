@@ -17,7 +17,7 @@ Follow the below steps to run the Game:
     2. rock paper scissors lizard spock
 4. Then you need to enter the order of agent for player one as prompted in the console.
 5. After that, you need to enter the order of agent for player two as prompted in the console.
-6. After the simulation ends, you find the ``result.txt`` file in the rsp_rpsls folder, which stores the result of the game.
+6. After the simulation ends, you find the ``result.txt`` file in the Rock_Paper_Scissors_and_Lizard_Spock_Approach_1 folder, which stores the result of the game.
 
 ## Rock Paper Scissors - Probability and Elemental Analysis approach
 
