@@ -52,7 +52,7 @@ These are compulsory command line arguments.
 - strategy =    1 for Random Strategy
                 2 for Most Optimal Winning Strategy
                 3 for Random Winning Strategy
-                
+#### Results are also added to 2playersResult.txt file                
 ## Blotto Game(for n players)
 Follow the steps given below to run n player simulation for Blotto game.
 ### The simulation will run for 100 rounds
@@ -68,6 +68,7 @@ Default command
    - strategy =    1 for Random Strategy
                    2 for Most Optimal Winning Strategy
                    3 for Random Winning Strategy
+#### Results are also added to nplayersResult.txt file                 
    
    
 
