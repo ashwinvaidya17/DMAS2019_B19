@@ -36,20 +36,21 @@ if __name__=="__main__":
     p1_order=int(input("Enter the order of agent for player one (Eg : 0) :"))
     p2_order=int(input("Enter the order of agent for player two (Eg : 2) :"))
 
-    if p1_order <= 5 and p2_order <= 5:
-        t_round=100 # default
-        game_no=1
-        if read_user==1:
-            game="Rock Paper Scissors"
-            game_summary,p1_score,p2_score,draw=rps_run(t_round,p1_order,p2_order,game_no)
-            gen_output(file_to_save_result,game,p1_order,p2_order,p1_score,p2_score,draw,game_summary,t_round)
-
-        elif read_user==2:
-            game="Rock Paper Scissors Lizard Spock"
-            game_summary,p1_score,p2_score,draw=rpsls_run(t_round,p1_order,p2_order,game_no)
-            gen_output(file_to_save_result,game,p1_order,p2_order,p1_score,p2_score,draw,game_summary,t_round)
-    else:
-        print("Enter the order of agents less than or equal to 5")
-        print("To run the simulation again, run the python3 console.py again ----- :) ")
+    if p1_order > 5:
+        p1_order=5
+    elif p2_order > 5:
+        p2_order=5
         
-        # ---------------------------------------------------------------------------------
+    t_round=100 # default
+    game_no=1
+    if read_user==1:
+        game="Rock Paper Scissors"
+        game_summary,p1_score,p2_score,draw=rps_run(t_round,p1_order,p2_order,game_no)
+        gen_output(file_to_save_result,game,p1_order,p2_order,p1_score,p2_score,draw,game_summary,t_round)
+
+    elif read_user==2:
+        game="Rock Paper Scissors Lizard Spock"
+        game_summary,p1_score,p2_score,draw=rpsls_run(t_round,p1_order,p2_order,game_no)
+        gen_output(file_to_save_result,game,p1_order,p2_order,p1_score,p2_score,draw,game_summary,t_round)
+    
+    # ---------------------------------------------------------------------------------
