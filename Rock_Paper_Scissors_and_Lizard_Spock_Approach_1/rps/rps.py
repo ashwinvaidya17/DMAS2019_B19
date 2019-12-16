@@ -1,6 +1,5 @@
 ###### Rock papaer scissors ###########
 import random
-import math
 from . import TOM
 from . import game
 
