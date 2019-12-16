@@ -1,9 +1,6 @@
 import random
 import json
-import zmq
 import argparse
-import math
-import numpy as np
 from datetime import datetime
 
 
