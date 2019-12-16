@@ -19,8 +19,8 @@ def rpsls_run(total_no_of_runs,p1order,p2order,game_no):
     tom=TOM.tom() # calling the TOM function
     a=game.rpsls()
     res_limit=10  # limit for the order of agents trails
-    seed1=res_limit+1 # seed for player 1 random trails
-    seed2=(res_limit*2)+1 # seed for player2 random trails
+    #seed1=res_limit+1 # seed for player 1 random trails
+    #seed2=(res_limit*2)+1 # seed for player2 random trails
     t_runs=total_no_of_runs # total number of runs
 
     print("########--------------------------------------------------------########")
@@ -42,10 +42,10 @@ def rpsls_run(total_no_of_runs,p1order,p2order,game_no):
                     p1_ch.append(p1)
                 else:
                     p1=random.randint(1,5)
-                    random.seed(seed1)
+                    #random.seed(seed1)
                     print("player one ("+str(p1_order)+" order) choice at round "+ str(count) +":",rpsls[p1])
                     p1_ch.append(p1)
-                    seed1+=1
+                    #seed1+=1
 
             if turn == 1:
                 print("player two turn -------->")
@@ -55,10 +55,10 @@ def rpsls_run(total_no_of_runs,p1order,p2order,game_no):
                     p2_ch.append(p2)
                 else:
                     p2=random.randint(1,5)
-                    random.seed(seed2)
+                    #random.seed(seed2)
                     print("player two ("+str(p2_order)+" order) choice at round "+str(count)+":",rpsls[p2])
                     p2_ch.append(p2)
-                    seed2+=1
+                    #seed2+=1
             turn+=1
         a.game(p1,p2) # game running part
         count+=1
