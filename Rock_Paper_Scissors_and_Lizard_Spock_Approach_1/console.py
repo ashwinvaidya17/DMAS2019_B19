@@ -3,10 +3,13 @@
 import os
 from rps.rps import rps_run
 from rpsls.rpsls import rpsls_run
+from datetime import datetime
 
 def gen_output(filename,game,p1_order,p2_order,p1_score,p2_score,draw,game_summary,t_rounds):
     # output file generation function
-    with open(filename,'a') as result:
+    with open(filename,'a+') as result:
+        result.write(datetime.now())
+        result.write("\n")
         result.write(game+" game result ")
         result.write("\n")
         result.write("\n")
@@ -17,15 +20,12 @@ def gen_output(filename,game,p1_order,p2_order,p1_score,p2_score,draw,game_summa
         result.write("The player two final score :"+str(p2_score)+"\n")
         result.write("Number of matches ended in draw :"+str(draw)+"\n")
         result.write("The winner of the game :"+str(game_summary)+"\n")
+        result.write("--------------------------------------------------------")
 
 
 if __name__=="__main__":
 
     file_to_save_result="result.txt"
-    # to remove the old files
-    if file_to_save_result in os.listdir():
-        os.remove(file_to_save_result)
-
     print("""Welcome to the Theory Of Mind (TOM) demonstration of Rock-Paper-Scissors and Rock-Paper-Scissors-Lizard-Spock Game
     Enter the Game of choice you want to play ---------------->
     1. rock paper scissors
