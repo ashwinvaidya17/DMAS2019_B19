@@ -26,9 +26,7 @@ Follow the steps to run the game:
 2. Run the file ```Launch_RPS_Game_approach_2.py``` in the linux terminal.
 3. Choose the order of player 1 (You can choose any order).
 4. Choose the order of player 2 (You can choose any order).
-5. Choose total number of games (eg: 5).
-6. Choose total number of rounds per game, should be greater than 5 (eg: 15).
-7. Results are updated to results.txt.
+5. Results are updated to results.txt.
 # Blotto-game 
   Go to Blotto_game folder to run the Blotto Game simulation.
  
