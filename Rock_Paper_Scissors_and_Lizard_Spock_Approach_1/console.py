@@ -8,6 +8,7 @@ from datetime import datetime
 def gen_output(filename,game,p1_order,p2_order,p1_score,p2_score,draw,game_summary,t_rounds):
     # output file generation function
     with open(filename,'a+') as result:
+        result.write("\n--------------------------------------------------------")
         result.write(str(datetime.now()))
         result.write("\n")
         result.write(game+" game result ")
@@ -20,7 +21,8 @@ def gen_output(filename,game,p1_order,p2_order,p1_score,p2_score,draw,game_summa
         result.write("The player two final score :"+str(p2_score)+"\n")
         result.write("Number of matches ended in draw :"+str(draw)+"\n")
         result.write("The winner of the game :"+str(game_summary)+"\n")
-        result.write("--------------------------------------------------------")
+        result.write("--------------------------------------------------------\n")
+        
 
 
 if __name__=="__main__":
