@@ -38,7 +38,7 @@ if __name__=="__main__":
 
     if p1_order > 5:
         p1_order=5
-    elif p2_order > 5:
+    if p2_order > 5:
         p2_order=5
         
     t_round=100 # default
