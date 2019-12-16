@@ -2,7 +2,7 @@
 This repository contains the Final version submission for the Design of Multi-agent systems project by the group ``B-19``. 
 
 # Title : "Higher Order Theory of Mind in RPS, RPLS and Blotto Game"
-
+ #### Note: For the pratical purposes we have consider TOM order of agents to be <=5. If you give the TOM order >5, then it will consider the max i.e. 5.
 # Instructions 
 
 ### ROCK-PAPER-SCISSORS/LIZARD-SPOCK PROBABILITY APPROACH
@@ -33,7 +33,7 @@ Follow the steps to run the game:
 
 # Blotto-game 
   Go to Blotto_game folder to run the Blotto Game simulation.
-  #### Note: For the pratical purposes we have consider TOM order of agents to be <=5. If you give the TOM order >5, then it will consider the max i.e. 5.
+ 
   ## Blotto Game(for 2 players)
  Follow steps given below to run 2 player simulation of Blotto Game.
 ### The simulation will run for 100 rounds
