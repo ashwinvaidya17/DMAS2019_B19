@@ -25,19 +25,6 @@ def initializeDistributionOfTroops(noOfBattleFields):
         count = count + 1
     return distribution
 
-# Read Config Parameters from config File
-def readConfig(fileName):
-    with open('config.txt') as json_file:
-        print (json_file)
-        config = json.load(json_file)
-        game = config['game']
-        implementation = config['implementation']
-        noOfTroops = config['noOfTroops']
-        noOfBattleFields = config['noOfBattleFields']
-        totalPlayers = config['totalPlayers']
-        memory = config['memory']
-        print ("Config Parameters are \n", game, implementation, noOfTroops, noOfBattleFields, totalPlayers, memory)
-
 # Return 1 if winner is playerA, 0 if it is a draw and -1 if playerB is the winner
 # Also return the the difference of troops A and B on the battlefields
 def getWinner(player1, player2):
