@@ -1,9 +1,0 @@
-Rock Paper Scissors game result 
-
-Number of rounds in the game :100
-Player one order :0
-Player two order :1
-The player one final score :13
-The player two final score :75
-Number of matches ended in draw :12
-The winner of the game :Winner is player 2
