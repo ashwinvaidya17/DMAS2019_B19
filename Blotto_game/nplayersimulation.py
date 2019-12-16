@@ -229,10 +229,10 @@ if __name__ == "__main__" :
         agentInfo = {}
         agent = "Agent" + str(i+1)
         agentInfo['distribution'] = distributeTroopsRandomly(noOfTroops,noOfBattleFields)
-        orderofAgent = orderOfAgents[i]
+        orderofAgent = int(orderOfAgents[i])
         if(orderofAgent > 5):
             orderofAgent = 5
-        agentInfo['Order'] = orderOfAgents[i]
+        agentInfo['Order'] = orderofAgent
         agentInfo['wins'] = 0
         listAgentInfo[agent] = agentInfo
 
