@@ -3,6 +3,9 @@ This repository contains the Final version submission for the Design of Multi-ag
 
 # Title : "Higher Order Theory of Mind in RPS, RPLS and Blotto Game"
  #### Note: For the pratical purposes we have consider TOM order of agents to be <=5. If you give the TOM order >5, then it will consider the max i.e. 5.
+ 
+# Dependencies
+- ```pip install tabulate```
 # Instructions 
 
 ### ROCK-PAPER-SCISSORS/LIZARD-SPOCK PROBABILITY APPROACH
