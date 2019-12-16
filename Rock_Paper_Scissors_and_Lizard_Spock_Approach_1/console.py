@@ -49,7 +49,7 @@ if __name__=="__main__":
             game_summary,p1_score,p2_score,draw=rpsls_run(t_round,p1_order,p2_order,game_no)
             gen_output(file_to_save_result,game,p1_order,p2_order,p1_score,p2_score,draw,game_summary,t_round)
     else:
-        print("Order of age more than 10 is not real, Enter the order of agents less than or equal to 10")
+        print("Enter the order of agents less than or equal to 5")
         print("To run the simulation again, run the python3 console.py again ----- :) ")
         
         # ---------------------------------------------------------------------------------
