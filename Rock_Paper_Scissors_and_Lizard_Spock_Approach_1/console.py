@@ -8,7 +8,7 @@ from datetime import datetime
 def gen_output(filename,game,p1_order,p2_order,p1_score,p2_score,draw,game_summary,t_rounds):
     # output file generation function
     with open(filename,'a+') as result:
-        result.write(datetime.now())
+        result.write(str(datetime.now()))
         result.write("\n")
         result.write(game+" game result ")
         result.write("\n")
