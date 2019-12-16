@@ -12,7 +12,7 @@ Follow the below steps to run the Game:
 
 1. Navigate to the folder rps_rpsls by typing ```cd 'Rock_Paper_Scissors_and_Lizard_Spock_Approach_1' ``` in the linux terminal\windows cmd prompt.
 2. Run the game by typing ```python3 console.py``` in the linux terminal.
-3. First you need to enter the "Game of choice"
+3. First you need to enter the "Choice of Game"
     1. rock paper scissors
     2. rock paper scissors lizard spock
 4. Then you need to enter the order of agent for player one as prompted in the console.
