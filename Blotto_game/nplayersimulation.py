@@ -26,19 +26,6 @@ def initializeDistributionOfTroops(noOfBattleFields):
         count = count + 1
     return distribution
 
-#Read Config Parameters from config File
-def readConfig(fileName):
-    with open('config.txt') as json_file:
-        print (json_file)
-        config = json.load(json_file)
-        game = config['game']
-        implementation = config['implementation']
-        noOfTroops = config['noOfTroops']
-        noOfBattleFields = config['noOfBattleFields']
-        totalPlayers = config['totalPlayers']
-        memory = config['memory']
-        print ("Config Parameters are \n",game,implementation,noOfTroops,noOfBattleFields,totalPlayers,memory)
-
 #Return the json like {{index:0,value:2},{index:1,value:3}}. The whole processing of logic will be using the following json structure
 def getJsonForDistribution(distribution):
     jsonDistribution = []
