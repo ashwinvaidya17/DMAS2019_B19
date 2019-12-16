@@ -4,10 +4,9 @@ import random
 p_2_memory = []
 p_1_memory = []
 # player confidence at the starting of the game between 10% and 90%
-#random.seed(1)
-p_1_confidence = round(random.uniform(0.1, 0.9), 1)
-p_2_confidence = round(random.uniform(0.1, 0.9), 1)
-p_confidence = round(random.uniform(0.1, 0.9), 1)
+p_1_confidence = round(random.uniform(0.5, 0.9), 1)
+p_2_confidence = round(random.uniform(0.5, 0.9), 1)
+p_confidence = 0.0
 
 # Initialize global variable = 0
 p_loop_number = 0
@@ -82,6 +81,7 @@ def p_thinks_probability(p_order, catch_order):
                 p_thinks_rock_probability = p_2_memory[-divideFactor:].count("Rock") / divideFactor
                 p_thinks_paper_probability = p_2_memory[-divideFactor:].count("Paper") / divideFactor
                 p_thinks_scissor_probability = p_2_memory[-divideFactor:].count("Scissor") / divideFactor
+    print(f"probability {p_thinks_rock_probability} {p_thinks_paper_probability} {p_thinks_scissor_probability}")
 
 
 # This function calculate what element is supposed to choose from probability
@@ -97,13 +97,13 @@ def p_choose_from_probability(p_confidence_assume, p_order, p_thinks_rock_probab
             p_thinks_scissor_probability * (-1))
     p_choose_scissor = (p_thinks_rock_probability * (-1)) + (p_thinks_paper_probability * 1) + (
             p_thinks_scissor_probability * 0)
-    print(p_choose_rock, p_choose_paper, p_choose_scissor)
+    print(f" choose from probability {p_choose_rock} {p_choose_paper} {p_choose_scissor}")
     # if p_order == 0, then it will not call p_confidence_from_choice()
 
     # At the start p_loop_number will be 0, it will increase in p_confidence_from_choice()
     if p_order > p_loop_number:
-        p_confidence_from_choice(p_confidence_assume, p_order, p_thinks_rock_probability,
-                                 p_thinks_paper_probability, p_thinks_scissor_probability)
+        #p_confidence_from_choice(p_confidence_assume, p_order, p_thinks_rock_probability, p_thinks_paper_probability, p_thinks_scissor_probability)
+        p_confidence_from_choice(p_confidence_assume, p_order, p_choose_rock, p_choose_paper, p_choose_scissor)
 
 
 # The p uses his confidence to make sure his opponent will choose a perticular element
@@ -112,30 +112,35 @@ def p_confidence_from_choice(p_confidence_assume, p_order, rock_multiply, paper_
                              scissor_multiply):
     global p_confidence_on_rock, p_confidence_on_paper, p_confidence_on_scissor, p_loop_number
 
+    if p_loop_number == p_order + 1:
+        p_confidence_assume_1 = p_confidence_assume
+    else:
+        p_confidence_assume_1 = round(random.uniform(0.1, 0.4), 1)
     # The agent will confirm that his opponent has choosen a perticular elemrnt from his confidence
     # and then will call p_choose_from_probability() to make the decision to what element to choose
     if p_choose_rock > p_choose_paper and p_choose_rock > p_choose_scissor:
-        p_confidence_on_rock = ((1 - p_confidence_assume) * rock_multiply) + p_confidence_assume
-        p_confidence_on_paper = ((1 - p_confidence_assume) * paper_multiply)
-        p_confidence_on_scissor = ((1 - p_confidence_assume) * scissor_multiply)
+        p_confidence_on_rock = ((1 - p_confidence_assume_1) * rock_multiply) + p_confidence_assume_1
+        p_confidence_on_paper = ((1 - p_confidence_assume_1) * paper_multiply)
+        p_confidence_on_scissor = ((1 - p_confidence_assume_1) * scissor_multiply)
 
     elif p_choose_paper > p_choose_rock and p_choose_paper > p_choose_scissor:
-        p_confidence_on_rock = ((1 - p_confidence_assume) * rock_multiply)
-        p_confidence_on_paper = ((1 - p_confidence_assume) * paper_multiply) + p_confidence_assume
-        p_confidence_on_scissor = ((1 - p_confidence_assume) * scissor_multiply)
+        p_confidence_on_rock = ((1 - p_confidence_assume_1) * rock_multiply)
+        p_confidence_on_paper = ((1 - p_confidence_assume_1) * paper_multiply) + p_confidence_assume_1
+        p_confidence_on_scissor = ((1 - p_confidence_assume_1) * scissor_multiply)
 
     elif p_choose_scissor > p_choose_rock and p_choose_scissor > p_choose_paper:
-        p_confidence_on_rock = ((1 - p_confidence_assume) * rock_multiply)
-        p_confidence_on_paper = ((1 - p_confidence_assume) * paper_multiply)
-        p_confidence_on_scissor = ((1 - p_confidence_assume) * scissor_multiply) + p_confidence_assume
+        p_confidence_on_rock = ((1 - p_confidence_assume_1) * rock_multiply)
+        p_confidence_on_paper = ((1 - p_confidence_assume_1) * paper_multiply)
+        p_confidence_on_scissor = ((1 - p_confidence_assume_1) * scissor_multiply) + p_confidence_assume_1
 
     elif p_choose_rock == p_choose_paper and p_choose_rock == p_choose_scissor:
         p_confidence_on_rock = 0
         p_confidence_on_paper = p_confidence_on_rock
         p_confidence_on_scissor = p_confidence_on_rock
 
+    print(f"loop no {p_loop_number} & p_order {p_order}")
     p_loop_number = p_loop_number + 1
-
+    print(f"choose from confidence {p_confidence_on_rock} {p_confidence_on_paper} {p_confidence_on_scissor}")
     p_choose_from_probability(p_confidence_assume, p_order, p_confidence_on_rock,
                               p_confidence_on_paper, p_confidence_on_scissor)
 
@@ -143,7 +148,6 @@ def p_confidence_from_choice(p_confidence_assume, p_order, rock_multiply, paper_
 # if the calculated number from probability/confidence is max for that element then choose that element
 # else choose random
 def p_chooses_finally():
-    global p_choice_is
     if p_choose_rock > p_choose_paper and p_choose_rock > p_choose_scissor:
         p_choice_is = "Rock"
 
@@ -156,6 +160,8 @@ def p_chooses_finally():
     elif p_choose_rock == p_choose_scissor and p_choose_rock == p_choose_paper:
         p_choice_is = random.choice(["Rock", "Paper", "Scissor"])
 
+    return p_choice_is
+
 
 # From the order the p will return the choice
 def p_will_choose(p_order, catch_order):
@@ -163,15 +169,20 @@ def p_will_choose(p_order, catch_order):
     p_loop_number = 0
     p_confidence_assume = round(random.uniform(0.1, 0.9), 1)
 
+    if catch_order == 1:
+        p_confidence = p_1_confidence
+    else:
+        p_confidence = p_2_confidence
+
+    print(f"p_confidence {p_confidence}")
     # To calculate the probability of repeating elements
     # catch_order will store the value of iteration_order from Rock_paper_Scissor_Game.py
     p_thinks_probability(p_order, catch_order)
 
     # To calculate what is to be choose from probability
-    p_choose_from_probability(p_confidence_assume, p_order, p_thinks_rock_probability,
-                              p_thinks_paper_probability, p_thinks_scissor_probability)
+    p_choose_from_probability(p_confidence, p_order, p_thinks_rock_probability, p_thinks_paper_probability, p_thinks_scissor_probability)
 
-    # To calculate which element is benificial to play next
-    p_chooses_finally()
+    # To calculate which element is beneficial to play next
+    p_choice_is = p_chooses_finally()
 
     return p_choice_is
