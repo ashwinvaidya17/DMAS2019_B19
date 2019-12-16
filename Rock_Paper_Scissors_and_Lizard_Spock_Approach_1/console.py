@@ -36,7 +36,7 @@ if __name__=="__main__":
     p1_order=int(input("Enter the order of agent for player one (Eg : 0) :"))
     p2_order=int(input("Enter the order of agent for player two (Eg : 2) :"))
 
-    if p1_order <= 10 and p2_order <= 10:
+    if p1_order <= 5 and p2_order <= 5:
         t_round=100 # default
         game_no=1
         if read_user==1:
