@@ -189,10 +189,6 @@ def result_rps(player_1_order, player_2_order):
     print(f"number of times player 1 won: {player_1_wins}")
     print(f"number of times player 2 won: {player_2_wins}")
 
-    # Print the data set of players for analysis
-    print(pa.p_1_memory)
-    print(pa.p_2_memory)
-
     # to add abbreviations for order of agent in results.txt
     p_1_order_title = "th"
     if player_1_order == 1:
@@ -216,7 +212,8 @@ def result_rps(player_1_order, player_2_order):
     dt_object = datetime.fromtimestamp(timestamp)
     f = open(f"results.txt", "a+")
     f.writelines(f"\n")
-    f.writelines(f"RPS Results between Player 1 as {player_1_order}{p_1_order_title} order & Player 2 as {player_2_order}{p_2_order_title} order |---| {dt_object}")
+    f.writelines(
+        f"RPS Results between Player 1 as {player_1_order}{p_1_order_title} order & Player 2 as {player_2_order}{p_2_order_title} order |---| {dt_object}")
     f.writelines(f"\n")
     f.writelines(tabulate(results, headers=["Draw Matches", "Player 1 wins", "Player 2 wins"]))
     f.writelines("\n------------------------------------------------\n")
