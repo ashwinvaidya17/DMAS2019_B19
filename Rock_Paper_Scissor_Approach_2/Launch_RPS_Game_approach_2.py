@@ -1,4 +1,3 @@
-import time
 import Rock_Paper_Scissor_Game_and_Rules as rps
 
 print("Rock-Paper-Scissor Game")
@@ -15,12 +14,7 @@ if player_1_order >= order_limit:
 if player_2_order >= order_limit:
     player_2_order = order_limit-1
 
-# The Game will begins after 3 Seconds
-print("\nGame begins in:")
-time.sleep(0.5)
-for i in range(3, 0, -1):
-    print(i)
-    time.sleep(1.0)
+print("\nGame begins")
 print("-----------------------------------------")
 
 # This function will call rock_paper_scissor function from Rock_Paper_Scissor_Game module where the actual game happens
